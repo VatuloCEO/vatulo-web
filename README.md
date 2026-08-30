@@ -16,7 +16,9 @@ documents, and the brand assets needed to render them.
 | --- | --- | --- |
 | `/` | `index.html` | Landing page |
 | `/privacy/` | `privacy/index.html` | Privacy Policy — **generated**, see below |
-| `/terms/` | `terms/index.html` | Terms of Service — **generated**, see below |
+| `/terms/` | `terms/index.html` | Terms of Service — **generated** |
+| `/fr/confidentialite/` | generated | Politique de confidentialité |
+| `/fr/conditions/` | generated | Conditions d'utilisation |
 | `/support/` | `support/index.html` | Support, and the contact address |
 | — | `404.html` | Served by Pages for any miss; self-contained |
 
@@ -28,12 +30,16 @@ and the Privacy Policy URL is a hard requirement in App Store Connect.
 ```
 index.html              Landing page
 privacy/  terms/        Generated from legal/*.md — do not hand-edit
+fr/confidentialite/     The same documents, in French
+fr/conditions/
 support/                Support page
 404.html                Self-contained, because Pages serves it from any depth
 
 legal/
-  privacy-policy.md     The documents themselves. Edit these.
+  privacy-policy.md               The documents themselves. Edit these.
   terms-of-service.md
+  politique-de-confidentialite.md
+  conditions-d-utilisation.md
 
 assets/
   css/site.css          The whole design system, ~700 lines

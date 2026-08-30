@@ -260,3 +260,8 @@ incidents.
 If we change this policy materially we will tell you in the app before the
 change takes effect, and update the date at the top. Continuing to use Vatulo
 after that means the new version applies to you.
+
+---
+
+*This page is also available [in French](https://vatulo.com/fr/confidentialite/).
+Where the two differ, the French version prevails.*

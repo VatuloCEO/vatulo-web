@@ -185,7 +185,16 @@ place where you live.
 - **Notices.** We reach you in the app or at the email address on your account.
   You reach us at vatulosupport@gmail.com.
 
-## 15. Changes
+## 15. Language
+
+These terms are available in French at
+[vatulo.com/fr/conditions](https://vatulo.com/fr/conditions/), and that version
+is presented first. Quebec's *Charter of the French language* entitles you to be
+bound by the French version of a contract of adhesion; you may agree to be bound
+by this English version only after having had the opportunity to examine the
+French one. **Where the two differ, the French version prevails.**
+
+## 16. Changes
 
 We will tell you in the app before material changes take effect, and update the
 date at the top. Continuing to use Vatulo after that means you accept them.

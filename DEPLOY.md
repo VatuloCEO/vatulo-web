@@ -16,11 +16,12 @@ portability; Apple's mandatory EULA terms; Google Play's account-deletion URL.
 
 Two things that a lawyer would raise and that this cannot substitute for:
 
-- **A French version.** Quebec's Charter of the French language, as amended by
-  Bill 96, requires consumer contracts of adhesion to be presented in French
-  before an English version can be agreed to. Vatulo is a Montreal consumer app.
-  This is the largest open exposure and it is a translation job, not a legal
-  one — ask and it can be done.
+- **The marketing pages in French.** Both legal documents now exist in French,
+  at `/fr/confidentialite/` and `/fr/conditions/` — that is the part s.55 of the
+  Charter of the French language requires of a consumer contract of adhesion,
+  and the app links to them on a French device. The landing page and the support
+  page are still English only, and s.52.1 covers commercial websites too. That
+  is the remaining half.
 - **The liability and indemnity sections.** They are drafted conservatively,
   with an explicit savings clause for the Quebec *Consumer Protection Act*
   rather than a broad exclusion that Act would strike down. Conservative is the
@@ -129,6 +130,8 @@ hour — tick it.
 - `https://vatulo.com/privacy` — redirects to `/privacy/` and renders
 - `https://vatulo.com/terms`
 - `https://vatulo.com/support`
+- `https://vatulo.com/fr/confidentialite` — and the switcher returns to `/privacy/`
+- `https://vatulo.com/fr/conditions`
 - `https://www.vatulo.com` — redirects to the apex
 - `http://vatulo.com` — redirects to `https://`
 

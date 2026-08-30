@@ -1,30 +1,43 @@
-// Renders the legal documents into /privacy/ and /terms/.
+// Renders the legal documents into /privacy/, /terms/, /fr/confidentialite/
+// and /fr/conditions/.
 //
-// The Privacy Policy and the Terms are written and reviewed as Markdown, in
-// `legal/`, because that is the form a lawyer will hand back edits in. GitHub
-// Pages serves static HTML, so this turns one into the other and commits the
-// result — no build runs on the server, and the site keeps working even if this
-// script is never run again.
+// The documents are written and reviewed as Markdown, in `legal/`, because that
+// is the form a lawyer will hand edits back in. GitHub Pages serves static
+// HTML, so this turns one into the other and commits the result — no build runs
+// on the server, and the site keeps working even if this script is never run
+// again.
 //
 // It is a deliberately small Markdown subset: headings, paragraphs, bold,
-// italic, bullet lists, block quotes and pipe tables. That is everything the
-// two documents use, and adding a dependency to a four-page static site to
-// support syntax nobody writes would be a poor trade. If a lawyer returns a
-// document using something else, this will render it literally rather than
-// silently dropping it — visible in the output, which is the failure mode to
-// prefer.
+// italic, links, bullet lists, block quotes, horizontal rules and pipe tables.
+// That is everything the four documents use, and adding a dependency to a
+// static site to support syntax nobody writes would be a poor trade. If a
+// lawyer returns a document using something else, this renders it literally
+// rather than silently dropping it — visible in the output, which is the
+// failure mode to prefer.
 //
 //   node tools/build-legal.mjs
 //
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 
 const SUPPORT_EMAIL = 'vatulosupport@gmail.com';
+
+// ---------------------------------------------------------------------------
+// The documents
+//
+// `path` is the live URL and decides how deep the page sits, which decides how
+// many `../` every asset reference needs. `alternate` is the same document in
+// the other language: it feeds both the link in the header and the hreflang
+// pair, and a document without one would be invisible to the switcher.
+// ---------------------------------------------------------------------------
 
 const DOCUMENTS = [
   {
     source: 'legal/privacy-policy.md',
     out: 'privacy/index.html',
     path: '/privacy/',
+    lang: 'en',
+    alternate: '/fr/confidentialite/',
     title: 'Privacy Policy — Vatulo',
     description:
       'What Vatulo collects, why, who else can see it, and how to get rid of it. Your location never leaves your phone.',
@@ -33,11 +46,82 @@ const DOCUMENTS = [
     source: 'legal/terms-of-service.md',
     out: 'terms/index.html',
     path: '/terms/',
+    lang: 'en',
+    alternate: '/fr/conditions/',
     title: 'Terms of Service — Vatulo',
     description:
       'The rules for using Vatulo: who may join, what you may not post, how reports are handled, and the limits of what we can promise.',
   },
+  {
+    source: 'legal/politique-de-confidentialite.md',
+    out: 'fr/confidentialite/index.html',
+    path: '/fr/confidentialite/',
+    lang: 'fr',
+    alternate: '/privacy/',
+    title: 'Politique de confidentialité — Vatulo',
+    description:
+      "Ce que Vatulo recueille, pourquoi, qui d'autre peut le voir et comment vous en débarrasser. Votre position ne quitte jamais votre téléphone.",
+  },
+  {
+    source: 'legal/conditions-d-utilisation.md',
+    out: 'fr/conditions/index.html',
+    path: '/fr/conditions/',
+    lang: 'fr',
+    alternate: '/terms/',
+    title: "Conditions d'utilisation — Vatulo",
+    description:
+      "Les règles d'utilisation de Vatulo : qui peut s'inscrire, ce que vous ne pouvez pas publier, le traitement des signalements et les limites de ce que nous pouvons promettre.",
+  },
 ];
+
+// ---------------------------------------------------------------------------
+// Chrome, in both languages
+// ---------------------------------------------------------------------------
+
+const CHROME = {
+  en: {
+    skip: 'Skip to content',
+    home: 'Vatulo — home',
+    nav: [
+      ['/#how', 'How it works'],
+      ['/#safety', 'Safety'],
+      ['/privacy/', 'Privacy'],
+      ['/terms/', 'Terms'],
+    ],
+    action: ['/support/', 'Support'],
+    switcher: 'Français',
+    switcherLabel: 'Lire cette page en français',
+    tagline: 'Find your people. Make the night.',
+    footer: [
+      ['/privacy/', 'Privacy Policy'],
+      ['/terms/', 'Terms of Service'],
+      ['/support/', 'Support'],
+    ],
+    contact: 'Contact',
+    age: '18+ only',
+  },
+  fr: {
+    skip: 'Aller au contenu',
+    home: 'Vatulo — accueil',
+    nav: [
+      ['/#how', 'Comment ça marche'],
+      ['/#safety', 'Sécurité'],
+      ['/fr/confidentialite/', 'Confidentialité'],
+      ['/fr/conditions/', 'Conditions'],
+    ],
+    action: ['/support/', 'Aide'],
+    switcher: 'English',
+    switcherLabel: 'Read this page in English',
+    tagline: 'Trouve ton monde. Fais ta soirée.',
+    footer: [
+      ['/fr/confidentialite/', 'Politique de confidentialité'],
+      ['/fr/conditions/', "Conditions d'utilisation"],
+      ['/support/', 'Aide'],
+    ],
+    contact: 'Nous joindre',
+    age: '18 ans et plus',
+  },
+};
 
 // ---------------------------------------------------------------------------
 // Markdown
@@ -46,17 +130,20 @@ const DOCUMENTS = [
 const escape = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+/** Turns a site-root path into one relative to a page `depth` levels down. */
+const rel = (path, depth) => (depth === 0 ? path.replace(/^\//, '') : '../'.repeat(depth) + path.replace(/^\//, ''));
+
 /**
  * Inline formatting. Escaping happens first, so nothing below can inject markup
  * that was not written here.
  */
-function inline(text) {
+function inline(text, depth) {
   let out = escape(text);
   out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   out = out.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
 
   // [text](url). Only http(s) and mailto are allowed through — the documents
-  // link to two of their own pages and nothing else, and a scheme this does not
+  // link to their own pages and nothing else, and a scheme this does not
   // recognise should render as the literal text rather than become a link.
   out = out.replace(/\[([^\]]+)\]\(((?:https?:|mailto:)[^)\s]+)\)/g, (_, label, href) => {
     // The Markdown writes these absolutely, because the app links to the same
@@ -64,30 +151,28 @@ function inline(text) {
     // anything from a phone. On the site itself that would be a round trip
     // through a domain that does not resolve yet — so a link the site can
     // serve becomes relative, exactly like every other path here.
-    const local = href.replace(/^https:\/\/vatulo\.com\//, '../');
+    const local = href.startsWith('https://vatulo.com/')
+      ? rel(href.slice('https://vatulo.com'.length), depth)
+      : href;
     return `<a href="${local}">${label}</a>`;
   });
-  // The support address appears in both documents and is the only way to
-  // exercise the rights the Privacy Policy grants. It should be one tap.
+
   out = out.replace(
     new RegExp(SUPPORT_EMAIL.replace(/\./g, '\\.'), 'g'),
     `<a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
   );
+
   return out;
 }
 
 /** Splits a pipe-table row into cells, ignoring the leading and trailing pipe. */
 const cells = (row) =>
-  row
-    .trim()
-    .replace(/^\|/, '')
-    .replace(/\|$/, '')
-    .split('|')
-    .map((c) => c.trim());
+  row.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
 
-const isTableSeparator = (line) => /^\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$/.test(line) && line.includes('-');
+const isTableSeparator = (line) =>
+  /^\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$/.test(line) && line.includes('-');
 
-function render(markdown) {
+function render(markdown, depth) {
   const lines = markdown.replace(/\r\n/g, '\n').split('\n');
   const html = [];
   let i = 0;
@@ -95,42 +180,36 @@ function render(markdown) {
   while (i < lines.length) {
     const line = lines[i];
 
-    // Blank
     if (line.trim() === '') {
       i++;
       continue;
     }
 
-    // Heading
     const heading = line.match(/^(#{1,4})\s+(.*)$/);
     if (heading) {
-      const level = heading[1].length;
-      html.push(`<h${level}>${inline(heading[2].trim())}</h${level}>`);
+      html.push(`<h${heading[1].length}>${inline(heading[2].trim(), depth)}</h${heading[1].length}>`);
       i++;
       continue;
     }
 
-    // Horizontal rule
     if (/^(\*\s*){3,}$|^(-\s*){3,}$|^(_\s*){3,}$/.test(line.trim())) {
       html.push('<hr>');
       i++;
       continue;
     }
 
-    // Block quote — the draft banner at the top of both documents. Collected
-    // whole, stripped of its markers, then rendered as its own document so the
-    // paragraphs inside it behave like paragraphs anywhere else.
+    // Block quote. Collected whole, stripped of its markers, then rendered as
+    // its own document so paragraphs inside behave like paragraphs anywhere.
     if (line.startsWith('>')) {
       const quoted = [];
       while (i < lines.length && lines[i].startsWith('>')) {
         quoted.push(lines[i].replace(/^>\s?/, ''));
         i++;
       }
-      html.push(`<blockquote>\n${render(quoted.join('\n'))}\n</blockquote>`);
+      html.push(`<blockquote>\n${render(quoted.join('\n'), depth)}\n</blockquote>`);
       continue;
     }
 
-    // Table
     if (line.trim().startsWith('|') && isTableSeparator(lines[i + 1] ?? '')) {
       const head = cells(lines[i]);
       i += 2;
@@ -139,9 +218,9 @@ function render(markdown) {
         body.push(cells(lines[i]));
         i++;
       }
-      const th = head.map((c) => `<th scope="col">${inline(c)}</th>`).join('');
+      const th = head.map((c) => `<th scope="col">${inline(c, depth)}</th>`).join('');
       const rows = body
-        .map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`)
+        .map((r) => `<tr>${r.map((c) => `<td>${inline(c, depth)}</td>`).join('')}</tr>`)
         .join('\n');
       // Wrapped so a wide table scrolls inside itself rather than pushing the
       // whole page sideways on a phone.
@@ -162,7 +241,7 @@ function render(markdown) {
           item += ' ' + lines[i].trim();
           i++;
         }
-        items.push(`<li>${inline(item)}</li>`);
+        items.push(`<li>${inline(item, depth)}</li>`);
       }
       html.push(`<ul>\n${items.join('\n')}\n</ul>`);
       continue;
@@ -181,7 +260,7 @@ function render(markdown) {
       paragraph.push(lines[i].trim());
       i++;
     }
-    html.push(`<p>${inline(paragraph.join(' '))}</p>`);
+    html.push(`<p>${inline(paragraph.join(' '), depth)}</p>`);
   }
 
   return html.join('\n');
@@ -189,11 +268,19 @@ function render(markdown) {
 
 // ---------------------------------------------------------------------------
 // Page chrome — kept in step with index.html and support/index.html by hand.
-// Four pages is not enough to justify a templating layer.
+// A handful of pages is not enough to justify a templating layer.
 // ---------------------------------------------------------------------------
 
-const page = ({ title, description, path, body }) => `<!doctype html>
-<html lang="en">
+function page({ title, description, path, lang, alternate, body, depth }) {
+  const t = CHROME[lang];
+  const r = (p) => rel(p, depth);
+  const other = lang === 'en' ? 'fr' : 'en';
+
+  const nav = t.nav.map(([href, label]) => `      <a href="${r(href)}">${label}</a>`).join('\n');
+  const footer = t.footer.map(([href, label]) => `        <a href="${r(href)}">${label}</a>`).join('\n');
+
+  return `<!doctype html>
+<html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -201,34 +288,46 @@ const page = ({ title, description, path, body }) => `<!doctype html>
 <meta name="description" content="${description}">
 <link rel="canonical" href="https://vatulo.com${path}">
 
+<!-- Both languages of this document declare each other, and x-default points
+     at French: under the Charter of the French language the French version is
+     the one presented first, and a search engine with no language preference
+     should land on it. -->
+<link rel="alternate" hreflang="${lang}" href="https://vatulo.com${path}">
+<link rel="alternate" hreflang="${other}" href="https://vatulo.com${alternate}">
+<link rel="alternate" hreflang="x-default" href="https://vatulo.com${lang === 'fr' ? path : alternate}">
+
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Vatulo">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="https://vatulo.com${path}">
+<meta property="og:locale" content="${lang === 'fr' ? 'fr_CA' : 'en_CA'}">
 <meta name="theme-color" content="#0a0a0f">
 
-<link rel="icon" href="../assets/img/favicon.png" sizes="48x48">
-<link rel="apple-touch-icon" href="../assets/img/app-icon.png">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="icon" href="${r('/assets/img/favicon.png')}" sizes="48x48">
+<link rel="apple-touch-icon" href="${r('/assets/img/app-icon.png')}">
+<link rel="stylesheet" href="${r('/assets/css/site.css')}">
 </head>
 <body>
 
 <!-- Generated by tools/build-legal.mjs from the Markdown in legal/. Edit the
      Markdown, re-run the script, and commit both. -->
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">${t.skip}</a>
 
 <header class="header" id="header">
   <div class="wrap header__inner">
-    <a class="wordmark" href="../" aria-label="Vatulo — home">vatulo</a>
-    <nav class="nav" aria-label="Primary">
-      <a href="../#how">How it works</a>
-      <a href="../#safety">Safety</a>
-      <a href="../privacy/">Privacy</a>
-      <a href="../terms/">Terms</a>
+    <a class="wordmark" href="${r('/')}" aria-label="${t.home}">vatulo</a>
+    <nav class="nav" aria-label="${lang === 'fr' ? 'Principale' : 'Primary'}">
+${nav}
     </nav>
-    <a class="btn btn--ghost btn--sm" href="../support/">Support</a>
+    <div class="header__end">
+      <a class="lang" href="${r(alternate)}" hreflang="${other}" lang="${other}" title="${t.switcherLabel}">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.2 9h17.6M3.2 15h17.6"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg>
+        <span>${t.switcher}</span>
+      </a>
+      <a class="btn btn--ghost btn--sm" href="${r(t.action[0])}">${t.action[1]}</a>
+    </div>
   </div>
 </header>
 
@@ -243,20 +342,19 @@ ${body}
     <div class="footer__grid">
       <div class="stack stack--tight">
         <span class="wordmark wordmark--lg">vatulo</span>
-        <p class="muted">Find your people. Make the night.</p>
+        <p class="muted">${t.tagline}</p>
       </div>
 
-      <nav class="footer__links" aria-label="Footer">
-        <a href="../privacy/">Privacy Policy</a>
-        <a href="../terms/">Terms of Service</a>
-        <a href="../support/">Support</a>
-        <a href="mailto:${SUPPORT_EMAIL}">Contact</a>
+      <nav class="footer__links" aria-label="${lang === 'fr' ? 'Pied de page' : 'Footer'}">
+${footer}
+        <a href="mailto:${SUPPORT_EMAIL}">${t.contact}</a>
+        <a href="${r(alternate)}" hreflang="${other}" lang="${other}">${t.switcher}</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
       <span>&copy; 2026 Vatulo · Montréal, Québec, Canada</span>
-      <span>18+ only</span>
+      <span>${t.age}</span>
     </div>
   </div>
 </footer>
@@ -273,6 +371,7 @@ ${body}
 </body>
 </html>
 `;
+}
 
 // ---------------------------------------------------------------------------
 
@@ -288,8 +387,22 @@ for (const doc of DOCUMENTS) {
     failed = true;
   }
 
-  writeFileSync(doc.out, page({ ...doc, body: render(markdown) }), 'utf8');
+  // /privacy/index.html is one level down, /fr/conditions/index.html is two.
+  const depth = doc.out.split('/').length - 1;
+
+  mkdirSync(dirname(doc.out), { recursive: true });
+  writeFileSync(doc.out, page({ ...doc, depth, body: render(markdown, depth) }), 'utf8');
   console.log(`  ok    ${doc.source} -> ${doc.out}`);
+}
+
+// Every document must be reachable from its counterpart, or the switcher is a
+// dead end and the French version is published but unfindable.
+const paths = new Set(DOCUMENTS.map((d) => d.path));
+for (const doc of DOCUMENTS) {
+  if (!paths.has(doc.alternate)) {
+    console.error(`  FAIL  ${doc.path} points at ${doc.alternate}, which nothing builds`);
+    failed = true;
+  }
 }
 
 process.exit(failed ? 1 : 0);

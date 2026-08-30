@@ -802,3 +802,47 @@ p { margin: 0; text-wrap: pretty; }
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* --------------------------------------------------------------------------
+   Language switcher
+
+   Quiet by design. It is not a call to action and it must not compete with the
+   button beside it — but on a Quebec consumer site it also cannot be buried,
+   because the French version is the one the law says is presented first. A
+   bordered pill in the header, and again in the footer for anyone who reached
+   the bottom before wondering.
+   -------------------------------------------------------------------------- */
+
+.header__end { display: flex; align-items: center; gap: var(--s-md); }
+
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.lang:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--surface);
+}
+
+.lang svg { flex: none; opacity: 0.75; }
+
+/* Below the nav breakpoint the header is wordmark + switcher + button, which
+   is the most a 360px header holds. The globe carries the meaning on its own
+   at that width, and the label would push the button off the edge. */
+@media (max-width: 480px) {
+  .lang { padding: 8px 10px; }
+  .lang span { display: none; }
+}

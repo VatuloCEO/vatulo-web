@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vatulo.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://vatulo.com/support/</loc><priority>0.6</priority></url>
-  <url><loc>https://vatulo.com/privacy/</loc><priority>0.4</priority></url>
-  <url><loc>https://vatulo.com/terms/</loc><priority>0.4</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://vatulo.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://vatulo.com/support/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vatulo.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vatulo.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vatulo.com/fr/confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vatulo.com/fr/confidentialite/"/>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://vatulo.com/fr/confidentialite/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vatulo.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vatulo.com/fr/confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vatulo.com/fr/confidentialite/"/>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://vatulo.com/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vatulo.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vatulo.com/fr/conditions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vatulo.com/fr/conditions/"/>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://vatulo.com/fr/conditions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vatulo.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vatulo.com/fr/conditions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vatulo.com/fr/conditions/"/>
+    <priority>0.4</priority>
+  </url>
 </urlset>
