@@ -54,6 +54,19 @@ function inline(text) {
   let out = escape(text);
   out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   out = out.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+
+  // [text](url). Only http(s) and mailto are allowed through — the documents
+  // link to two of their own pages and nothing else, and a scheme this does not
+  // recognise should render as the literal text rather than become a link.
+  out = out.replace(/\[([^\]]+)\]\(((?:https?:|mailto:)[^)\s]+)\)/g, (_, label, href) => {
+    // The Markdown writes these absolutely, because the app links to the same
+    // documents and https://vatulo.com/privacy/ is the only form that means
+    // anything from a phone. On the site itself that would be a round trip
+    // through a domain that does not resolve yet — so a link the site can
+    // serve becomes relative, exactly like every other path here.
+    const local = href.replace(/^https:\/\/vatulo\.com\//, '../');
+    return `<a href="${local}">${label}</a>`;
+  });
   // The support address appears in both documents and is the only way to
   // exercise the rights the Privacy Policy grants. It should be one tap.
   out = out.replace(

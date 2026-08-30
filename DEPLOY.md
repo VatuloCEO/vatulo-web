@@ -5,31 +5,28 @@ is the one that changes what the world sees at `vatulo.com`, so it is last.
 
 ---
 
-## Before anything: the draft banner
+## Before anything: what these documents are
 
-Both legal documents currently open with:
+The Privacy Policy and Terms have **not been reviewed by a lawyer.** That was a
+deliberate call — ship the MVP, get a reviewed version out once there is
+traction. They are written to be accurate about what the code actually does and
+to cover the requirements that are checkable without counsel: Law 25's named
+privacy officer, cross-border disclosure, automated processing, retention and
+portability; Apple's mandatory EULA terms; Google Play's account-deletion URL.
 
-> **DRAFT — NOT YET REVIEWED BY A LAWYER.** … Do not ship this as-is without
-> that review.
+Two things that a lawyer would raise and that this cannot substitute for:
 
-That banner is honest and it is correct — the documents genuinely have not been
-reviewed. But it will be **publicly visible** at `vatulo.com/privacy`, and it is
-the first thing an App Store reviewer reads when they open the Privacy Policy
-URL you gave them.
+- **A French version.** Quebec's Charter of the French language, as amended by
+  Bill 96, requires consumer contracts of adhesion to be presented in French
+  before an English version can be agreed to. Vatulo is a Montreal consumer app.
+  This is the largest open exposure and it is a translation job, not a legal
+  one — ask and it can be done.
+- **The liability and indemnity sections.** They are drafted conservatively,
+  with an explicit savings clause for the Quebec *Consumer Protection Act*
+  rather than a broad exclusion that Act would strike down. Conservative is the
+  right default without counsel; it is not the same as reviewed.
 
-There is no good way to publish a policy that tells its own readers not to trust
-it. Resolve this before stage 3:
-
-- **Get the review done** (a Quebec lawyer — Law 25 plus PIPEDA), fold in the
-  edits, and delete the banner. This is the real answer.
-- Or, if the site must go up first, replace the banner with a plain effective
-  date and keep the site off `vatulo.com` until the review lands. The App Store
-  submission needs the reviewed version regardless.
-
-Stages 1 and 2 are safe to do now either way — they publish to a
-`github.io` URL nobody has been given.
-
----
+Nothing below is blocked on either. Deploy when ready.
 
 ## Stage 1 — Create the repository and push
 
@@ -72,7 +69,7 @@ as at the apex domain later. Check all four pages there before going further.
 
 ## Stage 3 — Point vatulo.com at it
 
-Do this only once you are happy with stage 2 and the draft banner is resolved.
+Do this once you are happy with what is live at the github.io URL.
 
 ### 3a. Porkbun DNS
 
@@ -135,7 +132,15 @@ hour — tick it.
 - `https://www.vatulo.com` — redirects to the apex
 - `http://vatulo.com` — redirects to `https://`
 
-Then paste the privacy and support URLs into App Store Connect.
+Then fill in the store consoles. These four fields are the whole reason the
+site had to exist before submission:
+
+| Console | Field | Value |
+| --- | --- | --- |
+| App Store Connect | Privacy Policy URL | https://vatulo.com/privacy/ |
+| App Store Connect | Support URL | https://vatulo.com/support/ |
+| Play Console | Privacy policy | https://vatulo.com/privacy/ |
+| Play Console | Account deletion URL | https://vatulo.com/support/#delete-account |
 
 ---
 

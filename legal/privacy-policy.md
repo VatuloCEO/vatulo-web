@@ -1,26 +1,25 @@
 # Vatulo Privacy Policy
 
-**Last updated: 30 August 2026**
+**In effect from 30 August 2026**
 
-> **DRAFT — NOT YET REVIEWED BY A LAWYER.**
-> Every factual claim below was re-checked against the code and database schema
-> on 30 August 2026 and is accurate as of that date. The 23 August version had
-> drifted: it described gender as a binary choice, and predated the app
-> recording swipe outcomes and reading time at all.
->
-> The *legal* framing has not been reviewed. Vatulo operates from Quebec, which
-> means Quebec's Law 25 applies in addition to PIPEDA, and Law 25 has specific obligations — a designated privacy officer,
-> breach reporting, and consent rules — that a lawyer should confirm before this
-> is published. Do not ship this as-is without that review.
+This policy covers the Vatulo mobile app and the website at vatulo.com. Vatulo
+helps people find house parties and decide who comes to theirs. This explains
+what we collect, why, who else can see it, how long we keep it, and how to get
+rid of it.
 
-Vatulo helps people find house parties and decide who comes to theirs. This
-policy explains what we collect, why, who else can see it, and how to get rid of
-it.
+We have written it to be read. Where a section is short, it is because the
+honest answer is short.
 
-## Who we are
+## Who we are, and who is responsible
 
 Vatulo, Montreal, Quebec, Canada.
-Contact: **vatulosupport@gmail.com**
+
+Under Quebec's *Act respecting the protection of personal information in the
+private sector* (Law 25), an enterprise must name the person in charge of
+protecting personal information and publish their contact details. At Vatulo
+that person is the **Founder**, reachable at **vatulosupport@gmail.com**. Write
+to that address for anything in this policy — access, correction, deletion,
+complaints, or a question about how something works.
 
 ## What we collect
 
@@ -65,6 +64,10 @@ release on commitment, others hold it until a day, three hours, or an hour
 before the party starts. Hosts supply the address; we store it and release it
 under those two conditions and no other.
 
+**What we do not collect.** We have no advertising identifiers, no third-party
+analytics or tracking SDKs, and no social-media login that would report back to
+the network you signed in with.
+
 ## Location
 
 **Your location never leaves your phone.**
@@ -85,7 +88,7 @@ measured against.
 You can decline location entirely. The app works without it; you just will not
 see distances.
 
-## What we do with it
+## What we do with it, and why we are allowed to
 
 - Run the product: show you parties, let hosts choose guests, deliver messages.
 - Keep people safe: enforce 18+, apply rate limits, investigate reports, and act
@@ -93,8 +96,16 @@ see distances.
 - Send you notifications you have not turned off.
 - Send transactional email — confirming your address, resetting your password.
 
-We do **not** sell your personal information, and we do not use it for
-advertising or share it with advertisers.
+Most of this rests on the consent you give by creating an account and using the
+features concerned, and you can withdraw that consent by deleting your account.
+Some of it does not: enforcing the age limit, investigating reports, and keeping
+records that let us recognise abuse are things we do because the service cannot
+be operated safely otherwise, and because law and the App Store rules require
+it. Where we rely on that rather than on your consent, we say so in this policy.
+
+We do **not** sell your personal information, we do not use it for advertising
+or share it with advertisers, and we do not use it to train machine-learning
+models.
 
 ## Who else can see what
 
@@ -114,47 +125,123 @@ advertising or share it with advertisers.
 - **Nobody** sees your email address, your phone number, or your date of birth.
   Other people see your age, not your birthday.
 
-## Service providers
+## Automated processing
 
-We use a small number of processors, each of which handles data on our behalf:
+Two parts of Vatulo act on your information without a person involved, and Law
+25 says you should be told which:
 
-| Provider | What it handles |
-| --- | --- |
-| Supabase | Database, authentication, file storage. Hosted in Canada (ca-central-1). |
-| Expo | Push notification delivery. Receives a device push token and the notification text. |
-| Resend | Transactional email — confirmations and password resets. Receives your email address. |
-| Apple / Google | App distribution, and the push transport underneath Expo. |
+- **The order of your discovery deck.** Parties are ranked using what you have
+  said you like, how far away they are, who else is going, how recently they
+  were posted, and what you have swiped on before. This decides what you are
+  shown first. It does not decide anything about you.
+- **Anti-spam friction and rate limits.** If several applications in a row go
+  out without any party being opened, the app asks you to read one before
+  applying again. Separately, automatic rate limits cap how often certain
+  actions can be repeated. Both restrict what you can do for a short period.
+
+**No automated system decides whether you get into a party.** A host does, one
+guest at a time. And no account is suspended or restricted purely automatically
+— a person reviews the report first.
+
+If an automated limit has affected you and you think it is wrong, write to
+**vatulosupport@gmail.com**. You are entitled to be told the main factors
+involved and to have a person look at it.
+
+## Where your information is held
+
+| Provider | What it handles | Where |
+| --- | --- | --- |
+| Supabase | Database, authentication, file storage | Canada (ca-central-1) |
+| Expo | Push delivery. Receives a device push token and the notification text | United States |
+| Resend | Transactional email. Receives your email address | United States |
+| Apple / Google | App distribution, and the push transport underneath Expo | United States |
+
+Your account data — profile, messages, photos, everything in the database — is
+stored in Canada. Push notifications and transactional email necessarily pass
+through providers in the United States, which means the information in them can
+be subject to United States law, including lawful access requests there. What
+those providers receive is limited to what they need: an email address for
+Resend, a device token and the text of the notification for Expo.
+
+Each of these acts as our processor and is bound to use what it receives only to
+provide the service to us.
+
+## How long we keep things
+
+While your account exists, we keep what is listed above so the product can work.
+When you delete your account, most of it goes immediately — see below.
+
+Some things outlive the account, and each one has a reason:
+
+- **Reports, and the moderation decisions taken on them.** These are somebody
+  else's account of being harmed. Deleting your account should not erase it.
+- **Reviews**, both the ones written about you and the ones you wrote about
+  other people. A host's rating is built from many guests; removing yours would
+  quietly rewrite somebody else's reputation.
+- **Parties that already happened**, including ones you hosted. Other people
+  attended them and their own records refer to them.
+- **Message tombstones.** The words and any images are deleted; a marker stays
+  so the conversation still reads sensibly for the person you were talking to.
+- **Security records** — rate-limit and risk events. Their whole purpose is to
+  recognise a pattern of abuse, which a new account would otherwise reset.
+
+After deletion these are attached to an account carrying no name, username,
+photo, bio, email or phone number. We keep them under our legitimate interest in
+keeping the community safe, and we do not use them for anything else.
 
 ## Deleting your account
 
-You can delete your account from Settings, in the app. It is permanent.
+You can delete your account from Settings, in the app. It is permanent. You do
+not need to ask us, and you do not need a reason.
 
 When you do, we erase your name, username, photos, bio, interests, vibe tags,
 music preferences, prompts, university, programme, phone number, gender and
 avatar, replace your email with an unusable placeholder, end every session, and
 delete your push tokens, devices, filters, saved invite lists, friendships,
-blocks, swipes and notifications. Parties you were hosting that had not happened yet are cancelled,
-and your guests are told. Messages you sent become tombstones so the thread
-still reads sensibly for the other person, but the words and any images are
-gone.
+blocks, swipes and notifications. Parties you were hosting that had not happened
+yet are cancelled, and your guests are told. Messages you sent become tombstones
+so the thread still reads sensibly for the other person, but the words and any
+images are gone.
 
-**What survives, and why.** Reports made about you, moderation decisions, and
-reviews other people wrote stay. Those are other people's accounts of what
-happened, and deleting your account should not erase somebody else's record of
-being harmed. They are retained under our legitimate interest in keeping the
-community safe.
+If you cannot get into the app to do it — a lost password, a locked account —
+write to **vatulosupport@gmail.com** and we will do it for you once we can
+establish that the account is yours.
 
 ## Your rights
 
-You can access, correct, or delete your personal information, withdraw consent,
-and — under Quebec's Law 25 — request that we stop disclosing it or de-index it.
-Most of this you can do yourself in the app; for anything else, write to
-**vatulosupport@gmail.com** and we will respond within 30 days.
+You can:
+
+- **Access** the personal information we hold about you.
+- **Correct** anything inaccurate. Most of this you can do yourself in the app.
+- **Delete** your account and the information that goes with it.
+- **Withdraw consent**, by deleting your account.
+- **Receive a copy** of the information you gave us, in a structured, commonly
+  used technological format, and ask us to send it to someone else — the
+  portability right under Law 25.
+- **Ask us to stop disclosing** your information or to de-index it, under Law 25.
+
+Write to **vatulosupport@gmail.com**. We will answer within 30 days. There is no
+charge.
+
+**If you are not satisfied with our answer**, you can complain to the *Commission
+d'accès à l'information du Québec* (cai.gouv.qc.ca) or, outside Quebec, to the
+Office of the Privacy Commissioner of Canada (priv.gc.ca). You do not have to go
+through us first.
+
+## The website
+
+vatulo.com sets no cookies, runs no analytics, and embeds nothing from a third
+party — the typeface is served from our own domain rather than linked from a
+font network, so that reading this page does not report you to anyone. Our host,
+GitHub Pages, records ordinary server access logs, which we do not have access
+to and do not use.
 
 ## Children
 
 Vatulo is for adults. You must be 18 or older. We do not knowingly collect
-information from anyone under 18, and we delete accounts we find.
+information from anyone under 18, and we delete accounts we find. If you believe
+someone under 18 has an account, tell us at **vatulosupport@gmail.com** and we
+will act on it.
 
 ## Security
 
@@ -163,10 +250,13 @@ allowed to see is enforced by the database itself rather than by the app asking
 nicely. Passwords are hashed. Traffic is encrypted in transit. Exact addresses
 are released only against a confirmed commitment.
 
-No system is perfect. If we discover a breach affecting you, we will notify you
-and the Commission d'accès à l'information as Law 25 requires.
+No system is perfect. If we discover a confidentiality incident that presents a
+risk of serious injury, we will notify the people affected and the *Commission
+d'accès à l'information* as Law 25 requires, and we keep a register of such
+incidents.
 
 ## Changes
 
 If we change this policy materially we will tell you in the app before the
-change takes effect.
+change takes effect, and update the date at the top. Continuing to use Vatulo
+after that means the new version applies to you.
