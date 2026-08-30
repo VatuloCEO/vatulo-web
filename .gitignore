@@ -1,0 +1,8 @@
+# This repository is public and has no build step. Nothing generated belongs
+# here except the two legal pages, which are committed on purpose so GitHub
+# Pages can serve them without running anything.
+.DS_Store
+Thumbs.db
+desktop.ini
+node_modules/
+*.log
