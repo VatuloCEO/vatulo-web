@@ -6,3 +6,8 @@ Thumbs.db
 desktop.ini
 node_modules/
 *.log
+
+# A working copy of the landing text, extracted so it can be edited as prose
+# rather than as markup. index.html is the source of truth; this is a snapshot
+# that goes stale the moment either one changes, so it stays out of the repo.
+landing-copy.md
