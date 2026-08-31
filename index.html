@@ -22,11 +22,29 @@
 </head>
 <body>
 
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <linearGradient id="vatuloGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a855f7"/>
+      <stop offset="0.55" stop-color="#ec4899"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <!-- A V with a dot over it, which is also a person with their arms up.
+         The dot clears both arms on purpose: any lower and head, arms and body
+         fuse into one blob by the time the mark is 16px wide. -->
+    <g id="vatuloMark" fill="url(#vatuloGradient)">
+      <circle cx="50" cy="23" r="11"/>
+      <path d="M18 21 L50 79 L82 21" fill="none" stroke="url(#vatuloGradient)"
+            stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </defs>
+</svg>
+
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="header" id="header">
   <div class="wrap header__inner">
-    <a class="wordmark" href="./" aria-label="Vatulo — home">vatulo</a>
+    <a class="brand" href="./" aria-label="Vatulo — home"><svg class="symbol" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#vatuloMark"/></svg><span class="wordmark">vatulo</span></a>
     <nav class="nav" aria-label="Primary">
       <a href="#how">How it works</a>
       <a href="#inside">Why Vatulo</a>
@@ -325,7 +343,7 @@
   <div class="wrap">
     <div class="footer__grid">
       <div class="stack stack--tight">
-        <span class="wordmark wordmark--lg">vatulo</span>
+        <span class="brand brand--lg"><svg class="symbol" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#vatuloMark"/></svg><span class="wordmark">vatulo</span></span>
         <p class="muted">Find your people. Make the night.</p>
       </div>
 

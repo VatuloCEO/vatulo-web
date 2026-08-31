@@ -20,6 +20,7 @@ documents, and the brand assets needed to render them.
 | `/fr/confidentialite/` | generated | Politique de confidentialité |
 | `/fr/conditions/` | generated | Conditions d'utilisation |
 | `/support/` | `support/index.html` | Support, and the contact address |
+| `/brand/` | `brand/index.html` | The symbol, wordmark and lockup. `noindex`, not in the nav |
 | — | `404.html` | Served by Pages for any miss; self-contained |
 
 `/privacy/` and `/terms/` are the URLs Apple asks for at App Store submission,
@@ -98,7 +99,19 @@ top of `assets/css/site.css`.
 | Gradient | `#a855f7` → `#ec4899` → `#f97316` |
 | Trust | `#3b82f6` blue — never violet, so safety never reads as decoration |
 | Type | Inter, 400–800, tight negative tracking on display sizes |
-| Wordmark | lowercase `vatulo`, 800 weight, violet→pink |
+| Wordmark | lowercase `vatulo` in Quicksand 700, violet→pink |
+| Symbol | a V with a dot over it — also a person with their arms up |
+
+**Two typefaces, and the split is the point.** Inter sets the page. Quicksand
+sets one word, the wordmark, in one weight. A wordmark in the same neutral
+grotesque as the body copy is not a wordmark, it is a heading — so Quicksand
+must not spread, and the moment a section heading borrows it the distinction is
+gone.
+
+**The symbol and the wordmark are separate marks.** The app header carries the
+symbol alone; this site's nav carries the lockup, because a visitor who has just
+arrived does not yet know the name. `/brand/` shows all three, at every
+size they have to survive, and the rules for choosing between them.
 
 One rule carried over from the app, because a marketing page is exactly where it
 gets broken: **the gradient is a brand moment, not a decoration.** It paints the
