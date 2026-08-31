@@ -529,10 +529,6 @@ p { margin: 0; text-wrap: pretty; }
   grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
 }
 
-/* Two up. For a set of four, where auto-fit's three columns would strand the
-   fourth alone on its own row. */
-.grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); }
-
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
