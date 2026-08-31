@@ -397,8 +397,8 @@ p { margin: 0; text-wrap: pretty; }
 .trust-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-md) var(--s-xl);
-  font-size: 0.9375rem;
+  gap: var(--s-md) 16px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--text-secondary);
 }
@@ -845,4 +845,36 @@ p { margin: 0; text-wrap: pretty; }
 @media (max-width: 480px) {
   .lang { padding: 8px 10px; }
   .lang span { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   The closing line of a centred block
+
+   "Go to parties. Host your own. Build your Crowd. Do it again next weekend."
+   is a four-beat rhythm line, not prose. Three paragraphs of centred body copy
+   in a row is the classic wall-of-text failure, so the third one stops being
+   body copy: white instead of grey, a step up in weight, and its own breathing
+   room above. It reads as the point the paragraphs were making.
+   -------------------------------------------------------------------------- */
+
+.closer {
+  margin-top: var(--s-sm);
+  max-width: 46ch;
+  text-align: center;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 650;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+/* Two lines on a desktop, three on a phone, and every one of them ends on a
+   full stop. 'Build your Crowd. Do it again next weekend.' is five pixels too
+   wide for a 390px screen, and the choice there is between shrinking the type
+   below the paragraphs it is meant to land after, or breaking it a sentence
+   earlier. The second break is the cheaper one. */
+.closer .br-sm { display: none; }
+
+@media (max-width: 560px) {
+  .closer .br-sm { display: inline; }
 }
