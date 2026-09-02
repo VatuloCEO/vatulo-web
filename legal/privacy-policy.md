@@ -56,6 +56,11 @@ programme, further photos, and optionally a phone number.
 - Friend requests, friendships, people you have removed from your Crowd, and
   people you have blocked.
 - A device push token, so we can notify you, and which platform it is for.
+- **Every display name and username you have used.** Changing either is
+  limited — a name once every 30 days, a username once every 60 — and each
+  change is recorded. The list is for moderation: it is never shown to another
+  user, never shown to you as a list, and it is deleted when you delete your
+  account.
 - Security records: rate-limit events and risk events, used to detect abuse.
 
 **Addresses.** A party's exact address is given to you only after you commit to

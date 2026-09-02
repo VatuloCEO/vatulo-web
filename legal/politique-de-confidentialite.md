@@ -64,6 +64,12 @@ programme, d'autres photos et, si vous le souhaitez, un numéro de téléphone.
   votre Crowd et celles que vous avez bloquées.
 - Un jeton de notification poussée, pour que nous puissions vous avertir, et la
   plateforme à laquelle il correspond.
+- **Chaque nom d'affichage et chaque nom d'utilisateur que vous avez porté.**
+  Les changer est limité — le nom une fois par 30 jours, le nom
+  d'utilisateur une fois par 60 — et chaque changement est consigné. Cette
+  liste sert à la modération : elle n'est jamais montrée à un autre
+  utilisateur, jamais montrée à vous sous forme de liste, et elle est
+  supprimée lorsque vous supprimez votre compte.
 - Des registres de sécurité : événements de limitation de débit et événements de
   risque, servant à détecter les abus.
 
