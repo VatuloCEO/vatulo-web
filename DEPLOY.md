@@ -16,12 +16,14 @@ portability; Apple's mandatory EULA terms; Google Play's account-deletion URL.
 
 Two things that a lawyer would raise and that this cannot substitute for:
 
-- **The marketing pages in French.** Both legal documents now exist in French,
-  at `/fr/confidentialite/` and `/fr/conditions/` — that is the part s.55 of the
-  Charter of the French language requires of a consumer contract of adhesion,
-  and the app links to them on a French device. The landing page and the support
-  page are still English only, and s.52.1 covers commercial websites too. That
-  is the remaining half.
+- **The French.** Every page now exists in both languages and French is the
+  default — `/` is the French landing page and `/en/` the English one. Between
+  s.55 of the Charter of the French language (the legal documents, which the app
+  links to on a French device) and s.52.1 (commercial websites generally), the
+  requirement is met by construction rather than by promise. But the translation
+  is careful, not professional: it has had no native reviewer and no copywriter.
+  Worth one read by somebody who speaks Québécois French before it matters
+  commercially.
 - **The liability and indemnity sections.** They are drafted conservatively,
   with an explicit savings clause for the Quebec *Consumer Protection Act*
   rather than a broad exclusion that Act would strike down. Conservative is the
@@ -126,12 +128,15 @@ hour — tick it.
 
 ### 3c. Check
 
-- `https://vatulo.com` — home
+Eight pages — four, in two languages. The switcher on each one should land on
+the same page in the other language, and back again.
+
+- `https://vatulo.com/` — the French landing page, which is the default
+- `https://vatulo.com/en/` — the English one
+- `https://vatulo.com/fr/soutien/` and `https://vatulo.com/support/`
+- `https://vatulo.com/fr/confidentialite/` and `https://vatulo.com/privacy/`
+- `https://vatulo.com/fr/conditions/` and `https://vatulo.com/terms/`
 - `https://vatulo.com/privacy` — redirects to `/privacy/` and renders
-- `https://vatulo.com/terms`
-- `https://vatulo.com/support`
-- `https://vatulo.com/fr/confidentialite` — and the switcher returns to `/privacy/`
-- `https://vatulo.com/fr/conditions`
 - `https://www.vatulo.com` — redirects to the apex
 - `http://vatulo.com` — redirects to `https://`
 
@@ -144,6 +149,12 @@ site had to exist before submission:
 | App Store Connect | Support URL | https://vatulo.com/support/ |
 | Play Console | Privacy policy | https://vatulo.com/privacy/ |
 | Play Console | Account deletion URL | https://vatulo.com/support/#delete-account |
+
+These are the **English** URLs even though French is the site's default, because
+a store reviewer reads them and English is the safer bet for that one audience.
+Every one of them carries a switcher to the French version, and the French pages
+answer at `/fr/confidentialite/`, `/fr/soutien/` and `/fr/soutien/#delete-account`
+if you would rather submit those instead. The anchor is the same on both.
 
 ---
 

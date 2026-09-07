@@ -1,12 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Four pages, each in two languages. `x-default` names the version to serve
+  somebody whose language matches neither, and it is the French URL throughout
+  because French is this site's default: the audience is Montréal.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vatulo.com/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vatulo.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vatulo.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vatulo.com/"/>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://vatulo.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vatulo.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vatulo.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vatulo.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://vatulo.com/fr/soutien/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vatulo.com/fr/soutien/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vatulo.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vatulo.com/fr/soutien/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://vatulo.com/support/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vatulo.com/fr/soutien/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vatulo.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vatulo.com/fr/soutien/"/>
     <priority>0.6</priority>
   </url>
   <url>

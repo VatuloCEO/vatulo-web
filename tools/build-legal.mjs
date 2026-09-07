@@ -78,13 +78,20 @@ const DOCUMENTS = [
 // Chrome, in both languages
 // ---------------------------------------------------------------------------
 
+// French is the site's default language, so it holds the root: `/` is the
+// French landing page and `/en/` the English one. Every English link below
+// therefore points at `/en/` for the home page and its anchors, while the
+// English inner pages keep the root paths they have always had — the app and
+// the store consoles point at `/privacy/` and `/terms/`, and those are not
+// worth breaking to make the tree symmetrical.
 const CHROME = {
   en: {
     skip: 'Skip to content',
     home: 'Vatulo — home',
+    homePath: '/en/',
     nav: [
-      ['/#how', 'How it works'],
-      ['/#safety', 'Safety'],
+      ['/en/#how', 'How it works'],
+      ['/en/#safety', 'Safety'],
       ['/privacy/', 'Privacy'],
       ['/terms/', 'Terms'],
     ],
@@ -103,20 +110,21 @@ const CHROME = {
   fr: {
     skip: 'Aller au contenu',
     home: 'Vatulo — accueil',
+    homePath: '/',
     nav: [
       ['/#how', 'Comment ça marche'],
       ['/#safety', 'Sécurité'],
       ['/fr/confidentialite/', 'Confidentialité'],
       ['/fr/conditions/', 'Conditions'],
     ],
-    action: ['/support/', 'Aide'],
+    action: ['/fr/soutien/', 'Aide'],
     switcher: 'English',
     switcherLabel: 'Read this page in English',
     tagline: 'Trouve ton monde. Fais ta soirée.',
     footer: [
       ['/fr/confidentialite/', 'Politique de confidentialité'],
       ['/fr/conditions/', "Conditions d'utilisation"],
-      ['/support/', 'Aide'],
+      ['/fr/soutien/', 'Aide'],
     ],
     contact: 'Nous joindre',
     age: '18 ans et plus',
@@ -323,7 +331,7 @@ ${SPRITE}
 
 <header class="header" id="header">
   <div class="wrap header__inner">
-    <a class="brand" href="${r('/')}" aria-label="${t.home}">${MARK}<span class="wordmark">vatulo</span></a>
+    <a class="brand" href="${r(t.homePath)}" aria-label="${t.home}">${MARK}<span class="wordmark">vatulo</span></a>
     <nav class="nav" aria-label="${lang === 'fr' ? 'Principale' : 'Primary'}">
 ${nav}
     </nav>

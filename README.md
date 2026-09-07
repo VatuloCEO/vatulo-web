@@ -12,15 +12,21 @@ documents, and the brand assets needed to render them.
 
 ## Pages
 
-| Path | File | What it is |
+Four pages, each in both languages, with a switcher in every header.
+
+**French is the default language** and holds the root: `/` is the French landing
+page, `/en/` the English one. The inner English pages keep the root paths they
+have always had rather than moving under `/en/`, because the app and the store
+consoles point at `/privacy/`, `/terms/` and `/support/`, and symmetry is not
+worth breaking a URL that ships inside a binary.
+
+| French | English | What it is |
 | --- | --- | --- |
-| `/` | `index.html` | Landing page |
-| `/privacy/` | `privacy/index.html` | Privacy Policy — **generated**, see below |
-| `/terms/` | `terms/index.html` | Terms of Service — **generated** |
-| `/fr/confidentialite/` | generated | Politique de confidentialité |
-| `/fr/conditions/` | generated | Conditions d'utilisation |
-| `/support/` | `support/index.html` | Support, and the contact address |
-| — | `404.html` | Served by Pages for any miss; self-contained |
+| `/` | `/en/` | Landing page |
+| `/fr/confidentialite/` | `/privacy/` | Privacy Policy — **generated**, see below |
+| `/fr/conditions/` | `/terms/` | Terms of Service — **generated** |
+| `/fr/soutien/` | `/support/` | Support, and the contact address |
+| — | — | `404.html`, served by Pages for any miss; self-contained |
 
 `/privacy/` and `/terms/` are the URLs Apple asks for at App Store submission,
 and the Privacy Policy URL is a hard requirement in App Store Connect.
@@ -28,11 +34,13 @@ and the Privacy Policy URL is a hard requirement in App Store Connect.
 ## Layout
 
 ```
-index.html              Landing page
-privacy/  terms/        Generated from legal/*.md — do not hand-edit
-fr/confidentialite/     The same documents, in French
+index.html              French landing page — the site's default
+en/index.html           English landing page
+fr/confidentialite/     Generated from legal/*.md — do not hand-edit
 fr/conditions/
-support/                Support page
+privacy/  terms/        The same documents, in English
+fr/soutien/             Support page, French
+support/                Support page, English
 404.html                Self-contained, because Pages serves it from any depth
 
 legal/
