@@ -1,6 +1,6 @@
 # Vatulo Terms of Service
 
-**In effect from 30 August 2026**
+**In effect from 7 September 2026**
 
 These are the terms of the agreement between you and Vatulo (Montreal, Quebec,
 Canada) for the Vatulo app and the website at vatulo.com. By creating an account

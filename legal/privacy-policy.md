@@ -1,6 +1,6 @@
 # Vatulo Privacy Policy
 
-**In effect from 30 August 2026**
+**In effect from 7 September 2026**
 
 This policy covers the Vatulo mobile app and the website at vatulo.com. Vatulo
 helps people find house parties and decide who comes to theirs. This explains
@@ -119,6 +119,19 @@ models.
   control the audience for individual fields in the app.
 - **Hosts** of parties you apply to see your profile and how many friends you
   have in common.
+- **Anyone who can open a party** can see who is going to it, and that includes
+  you once you are on the guest list. They see the same three things about every
+  guest: main photo, first name, age. Being on the list is all it reveals —
+  nothing further about your profile follows from it, and a guest list is never
+  visible to anyone who could not already open the party itself.
+- **Your profile discoverability setting** decides whether hosts can come across
+  you without knowing you. *Open to invites* means a host may be shown your
+  profile among suggested guests, and may invite you. *Private* means a host
+  reaches you only if you apply to their party or already have a connection to
+  you — and then they do see your full profile, because a host has to be able to
+  judge an application. Private does not take you off the guest list of a party
+  you chose to join, and it does not hide your first name, main photo or age
+  from people who can already see you elsewhere in the app.
 - **The size of your Crowd** appears on your profile, and tapping it opens the
   list. Both follow the audience you choose for your Crowd in privacy settings —
   set it to nobody and the number is withheld as well as the names, because a
@@ -132,13 +145,21 @@ models.
 
 ## Automated processing
 
-Two parts of Vatulo act on your information without a person involved, and Law
+Three parts of Vatulo act on your information without a person involved, and Law
 25 says you should be told which:
 
 - **The order of your discovery deck.** Parties are ranked using what you have
   said you like, how far away they are, who else is going, how recently they
   were posted, and what you have swiped on before. This decides what you are
   shown first. It does not decide anything about you.
+- **The order you appear in to a host.** If you are open to invites, hosts
+  looking for guests are shown eligible people in a ranked order rather than an
+  arbitrary one. The ranking uses how well the party matches what you have said
+  you like — music, interests, the kind of night, the size of room — how many
+  people you and the host know in common, and a deliberately random element that
+  is reshuffled daily so the same people are not always shown first. It affects
+  the order you appear in, not whether a host may invite you, and no host sees
+  the ranking or the reasons behind it.
 - **Anti-spam friction and rate limits.** If several applications in a row go
   out without any party being opened, the app asks you to read one before
   applying again. Separately, automatic rate limits cap how often certain

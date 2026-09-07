@@ -1,6 +1,6 @@
 # Conditions d'utilisation de Vatulo
 
-**En vigueur depuis le 30 août 2026**
+**En vigueur depuis le 7 septembre 2026**
 
 Voici les conditions du contrat entre vous et Vatulo (Montréal, Québec, Canada)
 visant l'application Vatulo et le site vatulo.com. En créant un compte ou en

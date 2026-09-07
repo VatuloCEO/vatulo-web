@@ -1,6 +1,6 @@
 # Politique de confidentialité de Vatulo
 
-**En vigueur depuis le 30 août 2026**
+**En vigueur depuis le 7 septembre 2026**
 
 La présente politique vise l'application mobile Vatulo et le site vatulo.com.
 Vatulo aide les gens à trouver des fêtes à domicile et à décider qui vient aux
@@ -138,6 +138,22 @@ ne nous en servons pas pour entraîner des modèles d'apprentissage automatique.
   l'application qui peut voir chaque champ.
 - **Les hôtes** des fêtes auxquelles vous postulez voient votre profil et le
   nombre d'amis que vous avez en commun.
+- **Quiconque peut ouvrir une fête** peut voir qui s'y rend, vous compris dès
+  que vous figurez sur la liste des invités. Ces personnes voient les trois
+  mêmes éléments pour chaque invité : photo principale, prénom, âge. Votre
+  présence sur la liste est tout ce que cela révèle — rien d'autre de votre
+  profil n'en découle, et une liste d'invités n'est jamais visible par quelqu'un
+  qui ne pouvait pas déjà ouvrir la fête elle-même.
+- **Votre paramètre de visibilité de profil** détermine si des hôtes peuvent
+  vous découvrir sans vous connaître. *Ouvert aux invitations* signifie qu'un
+  hôte peut voir votre profil parmi les invités suggérés et vous inviter.
+  *Privé* signifie qu'un hôte ne vous atteint que si vous postulez à sa fête ou
+  s'il existe déjà un lien entre vous — et il voit alors votre profil complet,
+  parce qu'un hôte doit pouvoir juger une candidature. Le mode privé ne vous
+  retire pas de la liste d'invités d'une fête à laquelle vous avez choisi de
+  vous joindre, et il ne masque ni votre prénom, ni votre photo principale, ni
+  votre âge aux personnes qui peuvent déjà vous voir ailleurs dans
+  l'application.
 - **La taille de votre Crowd** apparaît sur votre profil, et il suffit d'y
   toucher pour ouvrir la liste. Les deux suivent le public que vous choisissez
   pour votre Crowd dans les paramètres de confidentialité — réglez-le sur
@@ -152,9 +168,19 @@ ne nous en servons pas pour entraîner des modèles d'apprentissage automatique.
 
 ## Le traitement automatisé
 
-Deux parties de Vatulo agissent sur vos renseignements sans intervention
+Trois parties de Vatulo agissent sur vos renseignements sans intervention
 humaine, et la Loi 25 prévoit que vous devez savoir lesquelles :
 
+- **L'ordre dans lequel vous apparaissez à un hôte.** Si vous êtes ouvert aux
+  invitations, les hôtes à la recherche d'invités voient les personnes
+  admissibles dans un ordre classé plutôt qu'arbitraire. Le classement tient
+  compte de la correspondance entre la fête et ce que vous avez dit aimer —
+  musique, champs d'intérêt, type de soirée, taille de la salle —, du nombre de
+  personnes que vous et l'hôte connaissez en commun, et d'un élément volontaire
+  de hasard renouvelé chaque jour afin que les mêmes personnes ne soient pas
+  toujours montrées en premier. Cela influe sur l'ordre dans lequel vous
+  apparaissez, non sur le droit d'un hôte de vous inviter, et aucun hôte ne voit
+  le classement ni les raisons qui le sous-tendent.
 - **L'ordre de votre fil de découverte.** Les fêtes sont classées selon ce que
   vous avez dit aimer, leur distance, qui d'autre y va, à quel point elles ont
   été publiées récemment et ce que vous avez balayé auparavant. Cela détermine
