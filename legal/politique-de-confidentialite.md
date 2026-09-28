@@ -1,6 +1,6 @@
 # Politique de confidentialité de Vatulo
 
-**En vigueur depuis le 7 septembre 2026**
+**En vigueur depuis le 28 septembre 2026**
 
 La présente politique vise l'application mobile Vatulo et le site vatulo.com.
 Vatulo aide les gens à trouver des fêtes à domicile et à décider qui vient aux
@@ -27,15 +27,15 @@ ou simple question sur le fonctionnement de quelque chose.
 
 **Ce que vous nous dites à l'inscription**
 
-- Votre adresse courriel et un mot de passe (conservé uniquement sous forme
-  d'empreinte cryptographique — nous ne le voyons jamais).
+- Votre adresse courriel et, si vous en choisissez un, un mot de passe
+  (conservé uniquement sous forme d'empreinte cryptographique — nous ne le
+  voyons jamais). Si vous continuez plutôt avec Apple ou Google, voir
+  *Se connecter avec Apple ou Google* ci-dessous.
 - Votre prénom et votre nom d'utilisateur.
 - Votre date de naissance. Vatulo est réservé aux 18 ans et plus; elle sert à
   faire respecter cette limite et à afficher votre âge sur votre profil.
-- Votre genre. Obligatoire, parmi : femme, homme, non binaire ou préfère ne pas
-  répondre. Il n'est montré aux autres que dans la proportion globale d'une
-  fête, jamais rattaché à vous individuellement, et jamais lorsque la liste
-  compte moins de cinq invités.
+- Votre genre. Obligatoire : femme ou homme. Il sert à afficher la proportion
+  d'hommes et de femmes de chaque fête, quel que soit le nombre d'invités.
 - Au moins une photo.
 
 **Ce que vous ajoutez ensuite**
@@ -80,9 +80,20 @@ d'autres la retiennent jusqu'à un jour, trois heures ou une heure avant le déb
 de la fête. C'est l'hôte qui fournit l'adresse; nous la conservons et la
 divulguons à ces deux conditions et à aucune autre.
 
-**Ce que nous ne recueillons pas.** Aucun identifiant publicitaire, aucun outil
-d'analyse ou de pistage de tiers, et aucune connexion par réseau social qui
-rapporterait quoi que ce soit au réseau utilisé.
+**Se connecter avec Apple ou Google.** Les deux sont facultatifs. Si vous en
+choisissez un, cette entreprise confirme votre identité et nous transmet votre
+adresse courriel — avec Apple, il peut s'agir d'une adresse relais privée qui
+vous réachemine les messages, si vous avez choisi de masquer votre courriel — et,
+si vous l'autorisez, votre nom. Google transmet aussi un lien vers votre photo de
+profil Google, dont nous ne nous servons pas. Nous ne les conservons que pour
+créer votre compte et vous connecter, et ils sont supprimés avec lui.
+L'entreprise que vous choisissez sait que vous vous êtes connecté à Vatulo, comme
+pour toute application avec laquelle vous l'utilisez, mais nous ne lui
+transmettons rien de ce que vous faites ici. Votre compte Apple ou Google
+lui-même est régi par la politique de confidentialité de cette entreprise.
+
+**Ce que nous ne recueillons pas.** Aucun identifiant publicitaire et aucun outil
+d'analyse ou de pistage de tiers.
 
 ## La localisation
 
@@ -159,16 +170,16 @@ ne nous en servons pas pour entraîner des modèles d'apprentissage automatique.
   pour votre Crowd dans les paramètres de confidentialité — réglez-le sur
   personne et le nombre est retenu au même titre que les noms, parce qu'un
   décompte est lui-même un fait vous concernant.
-- **Personne** ne voit votre genre isolément. Il n'apparaît que dans la
-  proportion globale d'une fête, et seulement lorsqu'au moins cinq invités
-  figurent sur la liste — en deçà, la proportion est entièrement retenue, parce
-  qu'une proportion calculée sur une poignée de personnes les identifie.
+- **Votre genre** n'est pas affiché sur votre profil. Il est compté dans la
+  proportion d'hommes et de femmes de chaque fête où vous allez, quelle que soit
+  la taille de la liste. Cette proportion ne nomme personne, mais sur une petite
+  liste, les personnes qui savent qui y va peuvent en déduire votre genre.
 - **Personne** ne voit votre adresse courriel, votre numéro de téléphone ni
   votre date de naissance. Les autres voient votre âge, pas votre anniversaire.
 
 ## Le traitement automatisé
 
-Trois parties de Vatulo agissent sur vos renseignements sans intervention
+Quatre parties de Vatulo agissent sur vos renseignements sans intervention
 humaine, et la Loi 25 prévoit que vous devez savoir lesquelles :
 
 - **L'ordre dans lequel vous apparaissez à un hôte.** Si vous êtes ouvert aux
@@ -190,7 +201,16 @@ humaine, et la Loi 25 prévoit que vous devez savoir lesquelles :
   l'application vous demande d'en lire une avant de postuler de nouveau. Par
   ailleurs, des limites automatiques plafonnent la fréquence de certaines
   actions. Les deux restreignent ce que vous pouvez faire pendant une courte
-  période.
+  période. Des restrictions distinctes — appliquées automatiquement après des
+  dépassements répétés de la même limite, ou directement par un modérateur —
+  visent cette action précise plutôt que votre compte, et peuvent demeurer en
+  place jusqu'à ce qu'elles soient examinées ou levées.
+- **Les mots qui ne peuvent pas être publiés.** Une courte liste d'injures
+  haineuses, de termes sexuels et de phrases incitant quelqu'un à se faire du mal
+  ne peut pas être utilisée dans les noms, les profils, les détails d'une fête,
+  les messages ou les récapitulatifs. La vérification est automatique et se fait
+  au moment où vous publiez : elle refuse le texte, pas vous. Rien n'est ajouté à
+  votre compte et aucun modérateur n'en est avisé.
 
 **Aucun système automatisé ne décide si vous entrez à une fête.** C'est un hôte
 qui décide, un invité à la fois. Et aucun compte n'est suspendu ou restreint de
@@ -237,7 +257,9 @@ Certaines choses survivent au compte, et chacune a sa raison :
   plusieurs invités; retirer la vôtre réécrirait discrètement la réputation de
   quelqu'un d'autre.
 - **Les fêtes déjà tenues**, y compris celles que vous avez organisées. D'autres
-  personnes y étaient et leurs propres registres y renvoient.
+  personnes y étaient et leurs propres registres y renvoient. Leur adresse, les
+  indications d'accès et le code de porte ne sont pas conservés : ils
+  disparaissent avec le compte de l'hôte.
 - **Les marqueurs de messages.** Le texte et les images sont supprimés; un
   marqueur demeure pour que la conversation reste intelligible pour la personne
   à qui vous parliez.
@@ -246,8 +268,8 @@ Certaines choses survivent au compte, et chacune a sa raison :
   qu'un nouveau compte remettrait à zéro.
 
 Après la suppression, tout cela est rattaché à un compte ne portant ni prénom,
-ni nom d'utilisateur, ni photo, ni présentation, ni courriel, ni numéro de
-téléphone. Nous les conservons au titre de notre intérêt légitime à assurer la
+ni nom d'utilisateur, ni photo, ni présentation, ni date de naissance, ni
+courriel, ni numéro de téléphone. Nous les conservons au titre de notre intérêt légitime à assurer la
 sécurité de la communauté, et nous ne nous en servons pour rien d'autre.
 
 ## Supprimer votre compte
@@ -258,15 +280,20 @@ pas à fournir de motif.
 
 Nous effaçons alors votre prénom, votre nom d'utilisateur, vos photos, votre
 présentation, vos champs d'intérêt, vos vibe tags, vos préférences musicales,
-vos réponses, votre université, votre programme, votre numéro de téléphone,
-votre genre et votre avatar; nous remplaçons votre courriel par une valeur
-inutilisable; nous mettons fin à toutes vos sessions; et nous supprimons vos
-jetons de notification, vos appareils, vos filtres, vos listes d'invitation
-enregistrées, vos amitiés, vos blocages, vos balayages et vos notifications. Les
-fêtes que vous organisiez et qui n'avaient pas encore eu lieu sont annulées, et
-vos invités en sont informés. Les messages que vous avez envoyés deviennent des
-marqueurs afin que le fil reste intelligible pour l'autre personne, mais les
-mots et les images, eux, ont disparu.
+vos réponses, votre université, votre programme, votre date de naissance, votre
+numéro de téléphone, votre genre et votre avatar; nous remplaçons votre courriel
+par une valeur inutilisable; nous mettons fin à toutes vos sessions; et nous
+supprimons vos jetons de notification, vos appareils, vos filtres, vos listes
+d'invitation enregistrées, vos amitiés, vos blocages, vos balayages et vos
+notifications, le nom et le courriel transmis par une connexion Apple ou Google,
+ainsi que l'adresse, les indications d'accès et le code de porte de chaque fête
+que vous avez organisée. Les fêtes que vous organisiez et qui n'avaient pas
+encore eu lieu sont annulées, et vos invités en sont informés. Les messages que
+vous avez envoyés deviennent des marqueurs afin que le fil reste intelligible
+pour l'autre personne, mais les mots et les images, eux, ont disparu. Si vous
+vous connectiez avec Apple, l'application vous demande de confirmer auprès
+d'Apple et nous demandons à Apple de dissocier Vatulo de votre identifiant
+Apple.
 
 Si vous ne pouvez pas accéder à l'application pour le faire — mot de passe perdu,
 compte verrouillé — écrivez à **vatulosupport@gmail.com** et nous le ferons pour

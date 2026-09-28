@@ -1,6 +1,6 @@
 # Vatulo Privacy Policy
 
-**In effect from 7 September 2026**
+**In effect from 28 September 2026**
 
 This policy covers the Vatulo mobile app and the website at vatulo.com. Vatulo
 helps people find house parties and decide who comes to theirs. This explains
@@ -25,14 +25,14 @@ complaints, or a question about how something works.
 
 **Things you tell us when you sign up**
 
-- Email address, and a password (stored only as a hash — we never see it).
+- Email address, and a password if you set one (stored only as a hash — we
+  never see it). If you continue with Apple or Google instead, see *Signing in
+  with Apple or Google* below.
 - First name and username.
 - Date of birth. Vatulo is 18+ and we use this to enforce that and to show your
   age on your profile.
-- Gender. Required, and one of woman, man, non-binary, or prefer not to say. It
-  is shown to other people only as part of a party's aggregate ratio, never
-  attached to you individually, and never when fewer than five guests are on a
-  list.
+- Gender. Required, and either woman or man. We use it to show each party's
+  ratio of men to women, at any number of guests.
 - At least one photo.
 
 **Things you add later**
@@ -69,9 +69,18 @@ release on commitment, others hold it until a day, three hours, or an hour
 before the party starts. Hosts supply the address; we store it and release it
 under those two conditions and no other.
 
-**What we do not collect.** We have no advertising identifiers, no third-party
-analytics or tracking SDKs, and no social-media login that would report back to
-the network you signed in with.
+**Signing in with Apple or Google.** Both are optional. If you choose one, that
+company confirms who you are and gives us your email address — with Apple, this
+can be a private relay address that forwards to you, if you chose to hide your
+email — and, if you allow it, your name. Google also sends a link to your Google
+profile picture, which we do not use. We keep these only to set up your account
+and sign you in, and they are deleted with it. The company you choose knows you
+signed in to Vatulo, as it does for any app you use it with, but we send it
+nothing about what you do here. Your Apple or Google account itself is governed
+by that company's own privacy policy.
+
+**What we do not collect.** We have no advertising identifiers and no
+third-party analytics or tracking SDKs.
 
 ## Location
 
@@ -136,16 +145,16 @@ models.
   list. Both follow the audience you choose for your Crowd in privacy settings —
   set it to nobody and the number is withheld as well as the names, because a
   count is itself a fact about you.
-- **Nobody** sees your gender individually. It appears only inside a party's
-  aggregate ratio, and only when at least five guests are on the list — below
-  that the ratio is withheld entirely, because a ratio over a handful of people
-  identifies them.
+- **Your gender** is not shown on your profile. It is counted in the ratio of
+  men to women on every party you are going to, whatever the size of the guest
+  list. The ratio names nobody, but on a small list, people who know who is
+  going can tell your gender from it.
 - **Nobody** sees your email address, your phone number, or your date of birth.
   Other people see your age, not your birthday.
 
 ## Automated processing
 
-Three parts of Vatulo act on your information without a person involved, and Law
+Four parts of Vatulo act on your information without a person involved, and Law
 25 says you should be told which:
 
 - **The order of your discovery deck.** Parties are ranked using what you have
@@ -164,6 +173,14 @@ Three parts of Vatulo act on your information without a person involved, and Law
   out without any party being opened, the app asks you to read one before
   applying again. Separately, automatic rate limits cap how often certain
   actions can be repeated. Both restrict what you can do for a short period.
+  Separate restrictions — applied automatically after repeated breaches of the
+  same limit, or by a moderator directly — affect that one action rather than
+  your account, and may remain in place until they are reviewed or lifted.
+- **Words that cannot be posted.** A short list of slurs, sexual terms and
+  phrases telling someone to harm themselves cannot be used in names, profiles,
+  party details, messages or recaps. The check is automatic and happens as you
+  post: it refuses the text, not you. Nothing is added to your account and no
+  moderator is told.
 
 **No automated system decides whether you get into a party.** A host does, one
 guest at a time. And no account is suspended or restricted purely automatically
@@ -205,14 +222,15 @@ Some things outlive the account, and each one has a reason:
   other people. A host's rating is built from many guests; removing yours would
   quietly rewrite somebody else's reputation.
 - **Parties that already happened**, including ones you hosted. Other people
-  attended them and their own records refer to them.
+  attended them and their own records refer to them. Their address, entry
+  details and door code are not kept: those go with the host's account.
 - **Message tombstones.** The words and any images are deleted; a marker stays
   so the conversation still reads sensibly for the person you were talking to.
 - **Security records** — rate-limit and risk events. Their whole purpose is to
   recognise a pattern of abuse, which a new account would otherwise reset.
 
 After deletion these are attached to an account carrying no name, username,
-photo, bio, email or phone number. We keep them under our legitimate interest in
+photo, bio, date of birth, email or phone number. We keep them under our legitimate interest in
 keeping the community safe, and we do not use them for anything else.
 
 ## Deleting your account
@@ -221,13 +239,16 @@ You can delete your account from Settings, in the app. It is permanent. You do
 not need to ask us, and you do not need a reason.
 
 When you do, we erase your name, username, photos, bio, interests, vibe tags,
-music preferences, prompts, university, programme, phone number, gender and
-avatar, replace your email with an unusable placeholder, end every session, and
-delete your push tokens, devices, filters, saved invite lists, friendships,
-blocks, swipes and notifications. Parties you were hosting that had not happened
-yet are cancelled, and your guests are told. Messages you sent become tombstones
-so the thread still reads sensibly for the other person, but the words and any
-images are gone.
+music preferences, prompts, university, programme, date of birth, phone number,
+gender and avatar, replace your email with an unusable placeholder, end every
+session, and delete your push tokens, devices, filters, saved invite lists,
+friendships, blocks, swipes and notifications, the name and email any Apple or
+Google sign-in gave us, and the address, entry details and door code of every
+party you hosted. Parties you were hosting that had not happened yet are
+cancelled, and your guests are told. Messages you sent become tombstones so the
+thread still reads sensibly for the other person, but the words and any images
+are gone. If you signed in with Apple, the app asks Apple to confirm and we tell
+Apple to disconnect Vatulo from your Apple ID.
 
 If you cannot get into the app to do it — a lost password, a locked account —
 write to **vatulosupport@gmail.com** and we will do it for you once we can
